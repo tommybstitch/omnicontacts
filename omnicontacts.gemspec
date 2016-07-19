@@ -31,7 +31,7 @@ Gem::Specification.new do |gem|
     "lib/omnicontacts/authorization/oauth1.rb",
     "lib/omnicontacts/authorization/oauth2.rb",
     "lib/omnicontacts/importer/facebook.rb",
-    "lib/omnicontacts/importer/google_oauth2.rb",
+    "lib/omnicontacts/importer/google_oauth_2.rb",
     "lib/omnicontacts/importer/hotmail.rb",
     "lib/omnicontacts/importer/linkedin.rb",
     "lib/omnicontacts/importer/outlook.rb",
