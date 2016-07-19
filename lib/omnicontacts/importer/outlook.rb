@@ -9,7 +9,7 @@ module OmniContacts
       include ParseUtils
 
       attr_reader :auth_host, :authorize_path, :auth_token_path, :scope
-
+      
       def initialize app, client_id, client_secret, options ={}
         super app, client_id, client_secret, options
         @auth_host = "login.microsoftonline.com"
@@ -19,6 +19,10 @@ module OmniContacts
         @contacts_host = "outlook.office.com"
         @contacts_path = "/api/v2.0/me/contacts"
         @self_path = "/api/v2.0/me"
+      end
+      
+      def return_provider_name
+        return "outlook"
       end
 
       def fetch_contacts_using_access_token access_token, token_type
