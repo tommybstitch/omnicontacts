@@ -67,7 +67,7 @@ module OmniContacts
             @env["omnicontacts.contacts"] = IntegrationTest.instance.mock_fetch_contacts(self)
           else
             @env["omnicontacts.contacts"] = return_value[:contacts]
-            @env['omnicontacts.auth'] = return_value[:access_token]
+            @env['omnicontacts.auth'] = return_value[:auth]
           end
           
           set_current_user IntegrationTest.instance.mock_fetch_user(self) if test_mode?

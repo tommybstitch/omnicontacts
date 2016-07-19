@@ -179,7 +179,7 @@ module OmniContacts
           contacts << contact if contact[:name]
         end
         contacts.uniq! {|c| c[:email] || c[:profile_picture] || c[:name]}
-        contacts
+        contacts, 'google_oauth2'
       end
 
       def current_user me, access_token, token_type
