@@ -22,10 +22,11 @@ module OmniContacts
           term.capitalize!
         end
         importer = importer.join('')
+      else
+        importer.capitalize!
       end
       
-      
-      middleware = "OmniContacts::Importer::#{importer.capitalize}".constantize
+      middleware = "OmniContacts::Importer::#{importer}".constantize
       use middleware, *args
     # rescue NameError
       # raise LoadError, "Could not find importer #{importer}."
