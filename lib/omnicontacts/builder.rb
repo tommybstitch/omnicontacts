@@ -17,14 +17,10 @@ module OmniContacts
 
     def importer importer, *args
       importer = importer.to_s.split('_')
-      if importer.length > 1
-        importer.each do |term|
-          term.capitalize!
-        end
-        importer = importer.join('')
-      else
-        importer.capitalize!
+      importer.each do |term|
+        term.capitalize!
       end
+      importer = importer.join('')
       
       middleware = OmniContacts::Importer.const_get(importer)
       use middleware, *args
