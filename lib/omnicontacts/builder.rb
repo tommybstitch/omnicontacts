@@ -24,7 +24,8 @@ module OmniContacts
         importer = importer.join('')
       end
       
-      middleware = OmniContacts::Importer.const_get(importer.to_s.capitalize)
+      
+      middleware = "OmniContacts::Importer::#{importer.capitalize}".constantize
       use middleware, *args
     rescue NameError
       raise LoadError, "Could not find importer #{importer}."
