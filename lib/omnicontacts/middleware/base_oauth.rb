@@ -63,13 +63,13 @@ module OmniContacts
       def handle_callback
         execute_and_rescue_exceptions do
           return_value = fetch_contacts
-          @env["omnicontacts.contacts"] = if test_mode?
-            IntegrationTest.instance.mock_fetch_contacts(self)
+          if test_mode?
+            @env["omnicontacts.contacts"] = IntegrationTest.instance.mock_fetch_contacts(self)
           else
-            return_value[:contacts]
+            @env["omnicontacts.contacts"] = return_value[:contacts]
+            @env['omnicontacts.auth'] = return_value[:access_token]
           end
           
-          @env['omnicontacts.auth'] = return_value[:access_token]
           set_current_user IntegrationTest.instance.mock_fetch_user(self) if test_mode?
           @app.call(@env)
         end
