@@ -16,8 +16,31 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec'
 
   gem.version = OmniContacts::VERSION
-  gem.files = `git ls-files`.split("\n")
-  gem.homepage = 'http://github.com/Diego81/omnicontacts'
+  gem.files = [
+    "Gemfile",
+    "Gemfile.lock",
+    "omnicontacts.gemspec",
+    "Rakefile",
+    "README.md",
+    "lib/omnicontacts.rb",
+    "lib/omnicontacs/builder.rb",
+    "lib/omnicontacs/http_utils.rb",
+    "lib/omnicontacs/importer.rb",
+    "lib/omnicontacs/integration_test.rb",
+    "lib/omnicontacs/parse_utils.rb",
+    "lib/omnicontacts/authorization/oauth1.rb",
+    "lib/omnicontacts/authorization/oauth2.rb",
+    "lib/omnicontacts/importer/facebook.rb",
+    "lib/omnicontacts/importer/google_oauth2.rb",
+    "lib/omnicontacts/importer/hotmail.rb",
+    "lib/omnicontacts/importer/linkedin.rb",
+    "lib/omnicontacts/importer/outlook.rb",
+    "lib/omnicontacts/importer/yahoo.rb",
+    "lib/omnicontacts/middleware/base_oauth.rb",
+    "lib/omnicontacts/middleware/oauth1.rb",
+    "lib/omnicontacts/middleware/oauth2.rb",
+  ]
+  gem.homepage = "https://github.com/tommybstitch/omnicontacts"
   gem.require_paths = ['lib']
   gem.required_rubygems_version = Gem::Requirement.new('>= 1.3.6') if gem.respond_to? :required_rubygems_version=
   gem.summary = gem.description
