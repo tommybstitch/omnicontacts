@@ -3,7 +3,7 @@ require "omnicontacts/middleware/oauth2"
 
 module OmniContacts
   module Importer
-    class Gmail < Middleware::OAuth2
+    class GoogleOauth2 < Middleware::OAuth2
       include ParseUtils
 
       attr_reader :auth_host, :authorize_path, :auth_token_path, :scope

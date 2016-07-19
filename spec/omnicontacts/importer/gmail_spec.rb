@@ -1,11 +1,11 @@
 require "spec_helper"
 require "omnicontacts/importer/gmail"
 
-describe OmniContacts::Importer::Gmail do
-  let(:gmail) { OmniContacts::Importer::Gmail.new({}, "client_id", "client_secret") }
+describe OmniContacts::Importer::GoogleOauth2 do
+  let(:gmail) { OmniContacts::Importer::GoogleOauth2.new({}, "client_id", "client_secret") }
 
   let(:gmail_with_scope_args) {
-    OmniContacts::Importer::Gmail.new(
+    OmniContacts::Importer::GoogleOauth2.new(
       {},
       "client_id",
       "client_secret",
