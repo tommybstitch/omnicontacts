@@ -24,7 +24,7 @@ module OmniContacts
       def fetch_contacts_using_access_token access_token, token_type
         fetch_current_user(access_token, token_type)
         contacts_response = https_get(@contacts_host, @contacts_path, contacts_req_params, contacts_req_headers(access_token, token_type))
-        contacts_from_response(contacts_response, access_token)
+        contacts_from_response(contacts_response, access_token), 'google_oauth2'
       end
 
       def fetch_current_user access_token, token_type
@@ -179,7 +179,7 @@ module OmniContacts
           contacts << contact if contact[:name]
         end
         contacts.uniq! {|c| c[:email] || c[:profile_picture] || c[:name]}
-        contacts, 'google_oauth2'
+        contacts
       end
 
       def current_user me, access_token, token_type
