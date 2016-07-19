@@ -53,7 +53,7 @@ module OmniContacts
           contacts = fetch_contacts_using_access_token(access_token, token_type)
           provider = return_provider_name
           session[refresh_token_prop_name(code)] = refresh_token if refresh_token
-          return {:contacts => contacts, :auth => {:access_token => access_token, :refresh_token = refresh_token, :provider => provider}}
+          return {:contacts => contacts, :auth => {:access_token => access_token, :refresh_token => refresh_token, :provider => provider}}
         else
           raise AuthorizationError.new("User did not grant access to contacts list")
         end
