@@ -16,6 +16,14 @@ module OmniContacts
     end
 
     def importer importer, *args
+      importer = importer.to_s.split('_')
+      if importer.length > 1
+        importer.each do |term|
+          term.capitalize!
+        end
+        importer = importer.join('')
+      end
+      
       middleware = OmniContacts::Importer.const_get(importer.to_s.capitalize)
       use middleware, *args
     rescue NameError

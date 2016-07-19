@@ -1,7 +1,7 @@
 module OmniContacts
   module Importer
 
-    autoload :google_oauth2, "omnicontacts/importer/google_oauth2"
+    autoload :GoogleOauth2, "omnicontacts/importer/google_oauth2"
     autoload :Yahoo, "omnicontacts/importer/yahoo"
     autoload :Hotmail, "omnicontacts/importer/hotmail"
     autoload :Outlook, "omnicontacts/importer/outlook"
