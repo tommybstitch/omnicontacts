@@ -16,7 +16,7 @@ module OmniContacts
         @scope = (args[3] && args[3][:scope]) || "https://www.googleapis.com/auth/contacts.readonly https://www.googleapis.com/auth/userinfo#email https://www.googleapis.com/auth/userinfo.profile"
         @contacts_host = "www.google.com"
         @contacts_path = "/m8/feeds/contacts/default/full"
-        @max_results =  (args[3] && args[3][:max_results]) || 100
+        @max_results =  (args[3] && args[3][:max_results]) || 10000
         @self_host = "www.googleapis.com"
         @profile_path = "/oauth2/v3/userinfo"
       end
