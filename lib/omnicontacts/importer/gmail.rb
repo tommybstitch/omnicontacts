@@ -20,11 +20,15 @@ module OmniContacts
         @self_host = "www.googleapis.com"
         @profile_path = "/oauth2/v3/userinfo"
       end
+      
+      def return_provider_name
+        return 'google_oauth2'
+      end
 
       def fetch_contacts_using_access_token access_token, token_type
         fetch_current_user(access_token, token_type)
         contacts_response = https_get(@contacts_host, @contacts_path, contacts_req_params, contacts_req_headers(access_token, token_type))
-        contacts_from_response(contacts_response, access_token), 'google_oauth2'
+        contacts_from_response(contacts_response, access_token)
       end
 
       def fetch_current_user access_token, token_type
