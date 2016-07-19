@@ -61,7 +61,7 @@ module OmniContacts
         end
         json = JSON.parse(response)
         raise json["error"] if json["error"]
-        [json["access_token"], json["token_type"], json["refresh_token"]]
+        json
       end
 
       public

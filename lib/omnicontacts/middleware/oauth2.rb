@@ -45,15 +45,18 @@ module OmniContacts
         code = query_string_to_map(@env["QUERY_STRING"])["code"]
         if code
           refresh_token = session[refresh_token_prop_name(code)]
-          (access_token, token_type, refresh_token) = if refresh_token
-                                                        refresh_access_token(refresh_token)
-                                                      else
-                                                        fetch_access_token(code)
-                                                      end
+          json = if refresh_token
+                   refresh_access_token(refresh_token)
+                 else
+                   fetch_access_token(code)
+                 end
+          refresh_token = json['refresh_token']
+          access_token = json['access_token'] 
+          token_type = json['token_type']
           contacts = fetch_contacts_using_access_token(access_token, token_type)
-          provider = return_provider_name
           session[refresh_token_prop_name(code)] = refresh_token if refresh_token
-          return {:contacts => contacts, :auth => {:access_token => access_token, :refresh_token => refresh_token, :provider => provider}}
+          json['provider'] = return_provider_name
+          return {:contacts => contacts, :auth => json}
         else
           raise AuthorizationError.new("User did not grant access to contacts list")
         end
