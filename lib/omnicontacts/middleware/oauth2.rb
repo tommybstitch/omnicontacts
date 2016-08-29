@@ -53,8 +53,6 @@ module OmniContacts
           refresh_token = json['refresh_token']
           access_token = json['access_token'] 
           token_type = json['token_type']
-          Rails.logger.info "-=-=-=-=-=-=-=-="
-          Rails.logger.info json
           contacts = fetch_contacts_using_access_token(access_token, token_type)
           session[refresh_token_prop_name(code)] = refresh_token if refresh_token
           json['provider'] = return_provider_name
